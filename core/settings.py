@@ -14,7 +14,7 @@ from pathlib import Path
 import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-eedk$cn8ak95u(mn0qzh7u*=0=t6ssva#!##ss^n7(6(&^!tp(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['dk-blog-api.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,14 +78,20 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'dc6qubf2mcfdht',
+#         'USER': 'mzhviwyorqjyfy',
+#         'PASSWORD': '263bfc6adaba848dd4a0ed2e8ff15c2e60caef020979467afbd05f9eaedf4aaa',
+#         'HOST': 'ec2-3-219-52-220.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dc6qubf2mcfdht',
-        'USER': 'mzhviwyorqjyfy',
-        'PASSWORD': '263bfc6adaba848dd4a0ed2e8ff15c2e60caef020979467afbd05f9eaedf4aaa',
-        'HOST': 'ec2-3-219-52-220.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -128,7 +134,7 @@ USE_TZ = True
 
 import os
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIR = {
