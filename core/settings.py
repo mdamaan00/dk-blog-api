@@ -163,4 +163,4 @@ FROALA_EDITOR_PLUGINS = ('align', 'char_counter', 'code_beautifier' ,'code_view'
 
 FRAOLA_EDITOR_THIRD_PARTY = ('image_aviary','spell_checker')
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000","http://192.168.0.106:3000"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000","http://192.168.0.106:3000","http://dkmedia.in","https://dkmedia.in","http://dkmedia.netlify.app","https://dkmedia.netlify.app"]
